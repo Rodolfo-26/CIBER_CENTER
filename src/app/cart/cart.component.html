@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Carrito de Compras</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let product of cart; let i = index">
+      <ion-thumbnail slot="start">
+        <img [src]="product.image" alt="{{ product.name }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p><strong>${{ product.price.toFixed(2) }}</strong></p>
+      </ion-label>
+      <ion-button (click)="removeFromCart(i)" fill="outline" slot="end">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón para procesar el pago -->
+  <ion-button expand="full" (click)="processPayment()">
+    <ion-icon name="cash"></ion-icon> Procesar Pago
+  </ion-button>
+</ion-content>

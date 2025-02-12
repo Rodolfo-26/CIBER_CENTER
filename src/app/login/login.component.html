@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ isRegistering ? 'Registrar' : 'Iniciar sesión' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-input
+    [(ngModel)]="email"
+    placeholder="Correo electrónico"
+    type="email"
+  ></ion-input>
+
+  <ion-input
+    [(ngModel)]="password"
+    placeholder="Contraseña"
+    type="password"
+  ></ion-input>
+
+  <!-- Mostrar diferentes botones dependiendo del estado -->
+  <ion-button expand="full" (click)="isRegistering ? register() : login()" [disabled]="isLoading">
+    {{ isRegistering ? 'Registrar' : 'Iniciar sesión' }}
+  </ion-button>
+
+  <!-- Botón para alternar entre login y registro -->
+  <ion-button expand="full" color="secondary" (click)="toggleRegister()" [disabled]="isLoading">
+    {{ isRegistering ? '¿Ya tienes cuenta? Iniciar sesión' : '¿No tienes cuenta? Registrarse' }}
+  </ion-button>
+
+  <!-- Spinner de carga -->
+  <ion-spinner *ngIf="isLoading"></ion-spinner>
+</ion-content>

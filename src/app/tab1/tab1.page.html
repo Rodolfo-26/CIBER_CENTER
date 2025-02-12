@@ -1,17 +1,77 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Papelería XYZ</ion-title>
+
+    <!-- Botón de Cerrar Sesión -->
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-img src="assets/img/logo.jpg" alt="Papelería XYZ" class="animated fadeIn"></ion-img>
+  
+  <h2 class="ion-text-center">Bienvenidos a Papelería XYZ</h2>
+  <p class="ion-text-center">
+    Encuentra todo lo que necesitas en material de oficina, escolar y más. 
+    Ofrecemos calidad y buen servicio para todos nuestros clientes.
+  </p>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- Carrusel sin Swiper -->
+  <div class="carousel">
+    <div class="carousel-container">
+      <img src="assets/img/lapiz.webp" alt="Oferta 1" class="carousel-item">
+      <img src="assets/img/arte_1.webp" alt="Oferta 2" class="carousel-item">
+      <img src="assets/img/oficina_1.webp" alt="Oferta 3" class="carousel-item">
+    </div>
+    <ion-button fill="clear" class="prev-btn">&lt;</ion-button>
+    <ion-button fill="clear" class="next-btn">&gt;</ion-button>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Promoción Especial</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      ¡Aprovecha un 20% de descuento en útiles escolares esta semana!
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item button routerLink="/productos">
+      <ion-icon name="cart-outline" slot="start" ></ion-icon>
+      <ion-label>Amplia variedad de productos</ion-label>
+    </ion-item>
+    <ion-item button>
+      <ion-icon name="pricetag-outline" slot="start"></ion-icon>
+      <ion-label>Precios accesibles</ion-label>
+    </ion-item>
+    <ion-item button>
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>Ubicación conveniente</ion-label>
+    </ion-item>
+    <ion-item button>
+      <ion-icon name="time-outline" slot="start"></ion-icon>
+      <ion-label>Horarios flexibles</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-title size="small" class="ion-text-center">Síguenos en nuestras redes</ion-title>
+    </ion-toolbar>
+    <ion-buttons class="ion-justify-content-center">
+      <ion-button href="https://www.facebook.com/profile.php?id=61561154961438" target="_blank">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button href="https://www.instagram.com/ciber.center/" target="_blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+      <ion-button href="https://twitter.com" target="_blank">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-footer>
 </ion-content>

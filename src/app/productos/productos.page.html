@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Botón de regreso -->
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Papelería</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="goToCart()">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Lista de categorías con imágenes -->
+  <div class="categories-container">
+    <div
+      *ngFor="let category of categories"
+      class="category-item"
+      (click)="selectCategory(category)"
+    >
+      <img
+        [src]="'assets/img/' + category + '.webp'"
+        alt="{{ category }}"
+        class="category-image"
+      />
+      <div class="category-name">{{ category }}</div>
+    </div>
+  </div>
+
+  <!-- Productos filtrados -->
+  <ion-card *ngIf="selectedCategory">
+    <ion-card-header>
+      <ion-card-title>{{ selectedCategory }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let product of filteredProducts">
+            <ion-card>
+              <div class="image-container">
+                <img [src]="product.image" alt="{{ product.name }}">
+              </div>
+              <ion-card-header>
+                <ion-card-title>{{ product.name }}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>{{ product.description }}</p>
+                <strong>Precio: ${{ product.price }}</strong> 
+                <ion-button expand="full" (click)="addToCart(product)">
+                  <ion-icon name="cart"></ion-icon> Agregar al carrito
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
