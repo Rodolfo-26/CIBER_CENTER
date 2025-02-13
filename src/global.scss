@@ -34,3 +34,9 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
+
+ion-toolbar[color="primary"] {
+    --background: var(--ion-color-primary) !important;
+    --color: var(--ion-color-primary-contrast) !important;
+  }
+  
